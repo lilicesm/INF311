@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/resultados"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaResultadosActivity">
+
+    <TextView
+        android:id="@+id/tvTitle2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Pratica02"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:background="#bbb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRelatorio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Relatório Nutricional:"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle2"
+        android:layout_marginTop="10dp"
+        />
+
+    <GridLayout
+        android:id="@+id/gridDados"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="6dp"
+        android:columnCount="2"
+        android:rowCount="6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRelatorio">
+
+        <TextView
+            android:id="@+id/tvNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="60dp"
+            android:text="Nome:"
+            android:textSize="20sp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/tvNomeResultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1" />
+
+        <TextView
+            android:id="@+id/tvIdade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="60dp"
+            android:text="Idade:"
+            android:textSize="20sp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1" />
+        <TextView
+            android:id="@+id/tvIdadeResultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1" />
+
+        <TextView
+            android:id="@+id/tvPeso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="60dp"
+            android:text="Peso:"
+            android:textSize="20sp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+        <TextView
+            android:id="@+id/tvPesoResultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1" />
+
+        <TextView
+            android:id="@+id/tvAltura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="60dp"
+            android:text="Altura:"
+            android:textSize="20sp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+        <TextView
+            android:id="@+id/tvAlturaResultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1" />
+
+        <TextView
+            android:id="@+id/tvIMC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="60dp"
+            android:text="IMC:"
+            android:textSize="20sp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+        <TextView
+            android:id="@+id/tvIMCResultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1" />
+
+        <TextView
+            android:id="@+id/tvClassificacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="60dp"
+            android:text="Classificação:"
+            android:textSize="20sp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+        <TextView
+            android:id="@+id/tvClassificacaoResultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1" />
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

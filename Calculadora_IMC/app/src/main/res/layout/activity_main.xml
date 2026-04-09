@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,12 +9,169 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Pratica02"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:background="#bbb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="10dp"
+        tools:layout_editor_absoluteY="60dp"
+        android:text="Nome:"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/txtNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="8dp"
+        android:background="#ddd"
+        android:padding="16dp"
+        android:textColor="#000"
+        android:textSize="24sp"
+        android:inputType="none"
+        android:focusable="false"
+        android:cursorVisible="false"
+        android:gravity="end|center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNome" />
+
+    <GridLayout
+        android:id="@+id/gridDados"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="6dp"
+        android:columnCount="3"
+        android:rowCount="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome">
+
+        <TextView
+            android:id="@+id/tvIdade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            tools:layout_editor_absoluteY="60dp"
+            android:text="Idade:"
+            android:textSize="20sp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1" />
+
+        <TextView
+            android:id="@+id/tvPeso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            tools:layout_editor_absoluteY="60dp"
+            android:text="Peso (kg):"
+            android:textSize="20sp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1" />
+
+        <TextView
+            android:id="@+id/tvAltura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            tools:layout_editor_absoluteY="60dp"
+            android:text="Altura (m):"
+            android:textSize="20sp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+    </GridLayout>
+
+    <GridLayout
+        android:id="@+id/gridEntrada"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="6dp"
+        android:columnCount="3"
+        android:rowCount="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridDados">
+
+        <EditText
+            android:id="@+id/txtIdade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:background="#ddd"
+            android:padding="16dp"
+            android:textColor="#000"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <EditText
+            android:id="@+id/txtPeso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:background="#ddd"
+            android:padding="16dp"
+            android:textColor="#000"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+
+        <EditText
+            android:id="@+id/txtAltura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:background="#ddd"
+            android:padding="16dp"
+            android:textColor="#000"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/btnRelatorio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end|center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toBottomOf="@+id/gridEntrada"
+        android:text="Relatório Nutricional"
+        android:textSize="24sp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
