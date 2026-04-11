@@ -1,6 +1,9 @@
 package alicemendonca.android.calculadora_imc_inf311;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -64,5 +67,51 @@ public class TelaResultadosActivity extends AppCompatActivity {
 
             tvClassificacao.setText(classificacao);
         }
+
+        Log.d("Ciclo", getLocalClassName() + ": onCreate()");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("Ciclo", getLocalClassName() + ": onStart()");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("Ciclo", getLocalClassName() + ": onResume()");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("Ciclo", getLocalClassName() + ": onPause()");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("Ciclo", getLocalClassName() + ": onStop()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("Ciclo", getLocalClassName() + ": onDestroy()");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("Ciclo", getLocalClassName() + ": onRestart()");
+    }
+
+    public void clickNovo(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
+        startActivity(intent);
     }
 }

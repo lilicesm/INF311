@@ -2,6 +2,7 @@ package alicemendonca.android.calculadora_imc_inf311;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         txtIdade = findViewById(R.id.txtIdade);
         txtPeso = findViewById(R.id.txtPeso);
         txtAltura = findViewById(R.id.txtAltura);
+
+        Log.d("Ciclo", getLocalClassName() + ": onCreate()");
     }
 
     public void clickRelatorio(View view) {
@@ -41,5 +44,41 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("ALTURA", txtAltura.getText().toString());
 
         startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("Ciclo", getLocalClassName() + ": onStart()");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("Ciclo", getLocalClassName() + ": onResume()");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("Ciclo", getLocalClassName() + ": onPause()");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("Ciclo", getLocalClassName() + ": onStop()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("Ciclo", getLocalClassName() + ": onDestroy()");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("Ciclo", getLocalClassName() + ": onRestart()");
     }
 }
