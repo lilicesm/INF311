@@ -27,10 +27,10 @@
         android:gravity="end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="10dp"
-        tools:layout_editor_absoluteY="60dp"
+        android:layout_marginTop="10dp"
         android:text="Nome:"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"/>
 
     <EditText
         android:id="@+id/txtNome"
@@ -43,9 +43,7 @@
         android:padding="16dp"
         android:textColor="#000"
         android:textSize="24sp"
-        android:inputType="none"
-        android:focusable="false"
-        android:cursorVisible="false"
+        android:inputType="textCapWords"
         android:gravity="end|center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,13 +64,11 @@
 
         <TextView
             android:id="@+id/tvIdade"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             tools:layout_editor_absoluteY="60dp"
             android:text="Idade:"
             android:textSize="20sp"
@@ -81,13 +77,11 @@
 
         <TextView
             android:id="@+id/tvPeso"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             tools:layout_editor_absoluteY="60dp"
             android:text="Peso (kg):"
             android:textSize="20sp"
@@ -96,13 +90,11 @@
 
         <TextView
             android:id="@+id/tvAltura"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             tools:layout_editor_absoluteY="60dp"
             android:text="Altura (m):"
             android:textSize="20sp"
@@ -126,37 +118,40 @@
 
         <EditText
             android:id="@+id/txtIdade"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:background="#ddd"
             android:padding="16dp"
             android:textColor="#000"
+            android:inputType="number"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"/>
 
         <EditText
             android:id="@+id/txtPeso"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:background="#ddd"
             android:padding="16dp"
             android:textColor="#000"
+            android:inputType="numberDecimal"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp" />
 
         <EditText
             android:id="@+id/txtAltura"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:background="#ddd"
             android:padding="16dp"
             android:textColor="#000"
+            android:inputType="numberDecimal"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp" />
 
@@ -166,7 +161,8 @@
         android:id="@+id/btnRelatorio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="end|center_vertical"
+        android:onClick="clickRelatorio"
+        android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="60dp"
