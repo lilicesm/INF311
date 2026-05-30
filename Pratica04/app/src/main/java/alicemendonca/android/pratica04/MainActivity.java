@@ -2,6 +2,7 @@ package alicemendonca.android.pratica04;
 
 import android.content.Intent;
 import android.hardware.Sensor;
+import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
@@ -31,8 +32,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private SensorManager sensorManager;
     private Sensor sensorLuminosidade;
     private Sensor sensorDistancia;
-    private float ultimoLum = -1;
-    private float ultimoDist = -1;
+    private float valorLum = -1;
+    private float valorDist = -1;
 
 
     @Override
@@ -72,18 +73,62 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 startActivityForResult(intent, 101);
             }
         });
-     }
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (sensorLuminosidade != null) {
+            sensorManager.registerListener(this, sensorLuminosidade, SensorManager.SENSOR_DELAY_GAME);
+        }
+        if (sensorDistancia != null) {
+            sensorManager.registerListener(this, sensorDistancia, SensorManager.SENSOR_DELAY_GAME);
+        }
+    }
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
-//        setContentView(R.layout.activity_main);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
-//    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        // atualiza os valores quando o sensor muda
+        if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
+            valorLum = event.values[0];
+        } else if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+            valorDist = event.values[0];
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // se a resposta do appB deu certo
+        if (requestCode == 101 && resultCode == RESULT_OK && data != null) {
+            String resultadoLum = data.getStringExtra("resultado_lum");
+            String resultadoDist = data.getStringExtra("resultado_dist");
+
+            if ("baixa".equalsIgnoreCase(resultadoLum)) {
+                lanternaHelper.ligar();
+                switchLanterna.setChecked(true);
+            } else {
+                lanternaHelper.desligar();
+                switchLanterna.setChecked(false);
+            }
+
+            if ("distante".equalsIgnoreCase(resultadoDist)) {
+                motorHelper.iniciarVibracao();
+                switchVibracao.setChecked(true);
+            } else {
+                motorHelper.pararVibracao();
+                switchVibracao.setChecked(false);
+            }
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 }
